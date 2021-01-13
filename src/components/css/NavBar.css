@@ -1,0 +1,66 @@
+/* NavBar */
+
+.navbar {
+  background-color: #202020;
+}
+
+/* NavBar Site Name */
+.navbar .navbar-brand {
+  color: #ffdf6c !important;
+}
+
+.navbar .navbar-brand:hover {
+  color: #ffdf6c;
+}
+
+/* NavBar Toggle Icon */
+
+.navbar .navbar-toggler {
+  background-color: #f8f9fa;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* .navbar .navbar-toggler-icon {
+  color: #202020;
+} */
+
+/* NavBar Buttons */
+
+.btn {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  font-weight: 700;
+}
+
+.btn:hover {
+  box-shadow: none !important;
+}
+
+/* NavBar Input */
+.mynav-input {
+  border-radius: 4px;
+}
+.mynav-input .btn {
+  color: #ffdf6c;
+  margin: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+.mynav-input input {
+  background-color: transparent;
+  border: none;
+  box-shadow: none !important;
+}
+
+.mynav-input input:hover {
+  box-shadow: none !important;
+}
+
+/* Form Input */
+.myforminput a {
+  color: #202020;
+  text-decoration: none;
+}

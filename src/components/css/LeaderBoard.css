@@ -1,0 +1,85 @@
+.leaderboard {
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  width: 100%;
+  height: 600px;
+  margin-bottom: 50px;
+}
+
+.leaderboard-header {
+  background-color: #3f3f3f;
+  width: 100%;
+  min-height: 25%;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.leaderboard .user {
+  margin: 7px 8% 0px 8%;
+  font-size: 20px;
+  padding: 5px 10px;
+}
+
+.leaderboard .user:hover {
+  background-color: #ffdf6c;
+  border-radius: 20px;
+}
+
+.leaderboard .user img {
+  width: 50px;
+  height: 50px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.leaderboard .user .point {
+  font-size: 25px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.leaderboard-header {
+  padding: 20px 10% 10px 10%;
+}
+
+.leaderboard .profile {
+  height: 70px;
+}
+
+.leaderboard .profile .profile-text {
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-left: 20px;
+}
+
+.leaderboard .profile img {
+  width: 80px;
+  height: 80px;
+  margin-left: 5%;
+}
+
+.leaderboard .profile h5 {
+  color: #f8f9fa;
+  font-size: 30px;
+}
+
+.leaderboard .profile p {
+  margin-top: 15px;
+  margin-left: 0px;
+  font-size: 17px;
+}
+
+.leaderboard .position p {
+  font-size: 17px;
+  line-height: 20px;
+}
+
+.leaderboard .position b {
+  font-size: 20px;
+}
+
+.leaderboard-footer {
+  height: 410px;
+  padding-top: 5px;
+}
+
+/* Scroll Bar */
