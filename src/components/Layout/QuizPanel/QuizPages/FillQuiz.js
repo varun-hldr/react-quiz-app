@@ -2,31 +2,24 @@ import React, { useState } from "react";
 import Quiz from "./Quiz";
 import "../../../css/Quiz.css";
 
-const FillQuiz = ({ quiz }) => {
+const FillQuiz = ({ quiz, random }) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const [random, setRandom] = useState(parseInt(0 + Math.random() * 4));
-  const [check, setCheck] = useState(true);
 
   const next = currentPage + 1;
   const prev = next - 1;
   const currentQuiz = quiz.slice(prev, next);
 
   const onClickHandler = (currentPage) => {
-    const random = parseInt(0 + Math.random() * 4);
-    setRandom(random);
     setCurrentPage(currentPage);
-    setCheck(true);
   };
   return (
     <div className="fill-quiz">
       <Quiz
         currentQuiz={currentQuiz}
         currentPage={currentPage}
-        random={random}
-        check={check}
-        setCheck={() => setCheck(false)}
+        random={random[currentPage]}
       />
-      <div className="buttons row">
+      <div className="buttons">
         <div className="btn-div col">
           {currentPage > 0 ? (
             <button

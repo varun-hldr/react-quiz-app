@@ -94,6 +94,7 @@ class Quiz extends Component {
           </div>
         );
       }
+      return null;
     });
   };
 }
