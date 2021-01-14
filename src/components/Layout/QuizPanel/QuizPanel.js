@@ -31,7 +31,14 @@ class QuizPanel extends Component {
           <Loader />
         ) : (
           <div className="row">
-            <div className="col-8">{<QuizBoard quiz={quizList.results} />}</div>
+            <div className="col-8">
+              {
+                <QuizBoard
+                  quiz={quizList.results}
+                  params={this.props.match.params}
+                />
+              }
+            </div>
             <div className="col-4">
               <LeaderBoard users={this.handlerFunction(gLeaderboard)} />
             </div>

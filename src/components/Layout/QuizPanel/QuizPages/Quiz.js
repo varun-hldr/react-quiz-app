@@ -38,12 +38,14 @@ class Quiz extends Component {
   }
 
   onClickOption = (char, rand) => {
-    const { currentPage } = this.props;
+    const { currentPage, setPoints, points } = this.props;
     if (!this.state.options[this.props.currentPage][4].check) {
       let options = [...this.state.options[this.props.currentPage]];
       let index = options.findIndex((option) => option.char === char);
       if (index !== rand) {
         options[index] = { ...options[index], bg: "#fc5054" };
+      } else {
+        setPoints(points + 10);
       }
       options[rand] = { ...options[rand], bg: "#37e9bb" };
       options[4] = { check: true };
