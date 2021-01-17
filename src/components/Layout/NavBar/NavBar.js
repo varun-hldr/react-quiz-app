@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import * as actions from "../../../actionsFiles/apiActions";
 import "../../css/NavBar.css";
 
 class NavBar extends Component {
@@ -9,11 +8,7 @@ class NavBar extends Component {
     return (
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
-          <Link
-            onClick={(e) => this.props.dispatch(actions.setLoaded(false))}
-            to="/"
-            className="navbar-brand"
-          >
+          <Link to="/" className="navbar-brand">
             <b>QuizUp</b>
           </Link>
           <button
@@ -41,12 +36,38 @@ class NavBar extends Component {
                   JOIN
                 </button>
               </div>
-              <button type="button" className="btn btn-light ms-5 ">
-                <Link to="/signup">SignUp</Link>
-              </button>
-              <button type="button" className="btn btn-light ms-3">
-                <Link to="/login">LogIn</Link>
-              </button>
+              {this.props.auth.isAuth ? (
+                <div className="d-flex">
+                  <button type="button" className="btn btn-light ms-5 ">
+                    <Link to="/dashboard">Dashboard</Link>
+                  </button>
+                  <button type="button" className="btn btn-light ms-2 ">
+                    <Link
+                      onClick={(e) =>
+                        this.props.dispatch({ type: "AUTH_LOGOUT" })
+                      }
+                      to="/"
+                    >
+                      Logout
+                    </Link>
+                  </button>
+
+                  <img
+                    className="userImage"
+                    src={this.props.auth.user.avatar}
+                    alt="user"
+                  ></img>
+                </div>
+              ) : (
+                <div className="d-flex">
+                  <button type="button" className="btn btn-light ms-5 ">
+                    <Link to="/signup">SignUp</Link>
+                  </button>
+                  <button type="button" className="btn btn-light ms-3">
+                    <Link to="/login">LogIn</Link>
+                  </button>
+                </div>
+              )}
             </form>
           </div>
         </div>

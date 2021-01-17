@@ -5,13 +5,22 @@ import * as action from "../../../actionsFiles/apiActions";
 import "../../css/Home.css";
 
 class Home extends Component {
+  componentDidMount() {
+    const { dispatch, quiz } = this.props;
+    if (!quiz.lbLoaded) {
+      dispatch(action.getGlobalLeaderBoard());
+    }
+    if (!quiz.uLoaded) {
+      dispatch(action.getUsers());
+    }
+  }
   getQuizFromApi = (e) => {
     const id = e.target.name;
     this.props.dispatch(action.getQuiz(id));
   };
   makeQuiz = (name, id) => {
     return (
-      <li>
+      <li key={id}>
         <b>QuizUP :</b>
         <Link to={`/quiz/${id}`} name={id} onClick={this.getQuizFromApi}>
           {name}

@@ -63,7 +63,7 @@ class Quiz extends Component {
         <p>{currentPage + 1}/10</p>
         {currentQuiz.map((quiz) => {
           return (
-            <div className="quizzes">
+            <div key={currentPage} className="quizzes">
               <div className="question-title">
                 <h4>{quiz.question}</h4>
               </div>
@@ -89,6 +89,7 @@ class Quiz extends Component {
             type="button"
             className="option"
             style={{ backgroundColor: option.bg }}
+            key={index}
           >
             <h5>{option.char}</h5>
 

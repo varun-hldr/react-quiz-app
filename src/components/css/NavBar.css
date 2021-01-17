@@ -64,3 +64,10 @@
   color: #202020;
   text-decoration: none;
 }
+
+/* Navbar User Image */
+
+.myforminput .userImage {
+  width: 40px;
+  margin-left: 10px;
+}

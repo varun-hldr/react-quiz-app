@@ -13,8 +13,6 @@ const FillQuiz = ({ quiz, random, setTotalPoints }) => {
   const onClickHandler = (currentPage) => {
     setCurrentPage(currentPage);
   };
-
-  console.log(points);
   return (
     <div className="fill-quiz">
       <Quiz

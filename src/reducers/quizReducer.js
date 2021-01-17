@@ -1,22 +1,25 @@
 const initialState = {
-  isLoaded: false,
-  quizLoaded: false,
+  qLoaded: false,
   lbLoaded: false,
+  uLoaded: false,
 };
 
-const quizReducer = (state = initialState, action) => {
+export default function quizReducer(state, action) {
+  state = state || initialState;
   switch (action.type) {
     case "QUIZ_DATA":
-      return { ...state, quizList: action.payload, quizLoaded: true };
+      return { ...state, quizList: action.payload, qLoaded: true };
     case "GLOBAL_LEADERBOARD":
-      return { ...state, gLeaderboard: action.payload, lbLoaded: true };
-
+      return {
+        ...state,
+        gLeaderboard: action.payload,
+        lbLoaded: true,
+      };
     case "LOADED":
-      return { ...state, isLoaded: action.payload };
-
+      return { ...state, qLoaded: false, lbLoaded: false };
+    case "USERS":
+      return { ...state, users: action.payload, uLoaded: true };
     default:
       return state;
   }
-};
-
-export default quizReducer;
+}

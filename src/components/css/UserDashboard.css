@@ -1,0 +1,164 @@
+.dashboard {
+  width: 100%;
+  background-color: #f8f9fa;
+  padding-bottom: 40px;
+  min-height: 630px;
+}
+
+.dashboard .totalQuiz {
+  background-color: #ffdf6c;
+  color: #202020;
+  padding: 20px 2% 20px 6%;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.dashboard .results {
+  background-color: #37e9bb;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.dashboard .totalQuiz {
+  height: 630px;
+}
+
+.dashboard .results {
+  height: 630px;
+}
+
+@media (max-width: 995px) {
+  .dashboard .totalQuiz {
+    width: 100%;
+    height: 630px;
+    border-radius: 0px;
+  }
+  .dashboard .results {
+    width: 100%;
+    height: 630px;
+    border-radius: 0px;
+  }
+}
+
+/* Quiz Details */
+
+.dashboard .quizDetails h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 23px;
+  margin-bottom: 50px;
+  margin-right: 2%;
+}
+
+.dashboard .quizList {
+  height: 500px;
+}
+
+.dashboard .quizLst {
+  margin-bottom: 70px;
+}
+
+.dashboard .quizDetails .quizName {
+  background-color: #f8f9fa;
+  max-height: 47px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-right: 4%;
+}
+
+.dashboard .quizDetails .quizName span {
+  background-color: #202020;
+  color: #f8f9fa;
+  font-size: 30px;
+  padding: 0px 18px;
+  border-radius: 5px;
+  font-weight: 600;
+  margin-right: 10px;
+  padding-bottom: 5px;
+}
+
+.dashboard .quizDetails .quizName h2 {
+  font-size: 23px;
+  padding-top: 8px;
+}
+
+.dashboard .quizOptions button {
+  width: 80px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  height: 40px;
+  color: #f8f9fa;
+  font-size: 20px;
+}
+
+.dashboard .quizOptions .del {
+  background-color: #fc5054;
+}
+.dashboard .quizOptions .edit {
+  background-color: #202020;
+}
+.dashboard .quizOptions .view {
+  background-color: #37e9bb;
+}
+
+.dashboard .CreateQuiz {
+  background-color: #202020;
+  color: #ffdf6c;
+  border: 3px solid #ffdf6c;
+  border-radius: 10px;
+  outline: none;
+  width: 250px;
+  height: 70px;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+/* Results Details */
+
+.resultDetails {
+  text-align: center;
+  padding: 20px 10%;
+}
+
+.resultDetails h3 {
+  color: #f8f9fa;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 23px;
+  margin-bottom: 40px;
+}
+
+.resultDetails .times {
+  width: 150px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #ffdf6c;
+  color: #202020;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.resultDetails .userLeaderboard {
+  margin-top: 50px;
+  background-color: #f8f9fa;
+  height: 400px;
+  padding: 20px 5% 20px 15%;
+  border-radius: 10px;
+}
+
+.resultDetails .userLeaderboard h4 {
+  margin-bottom: 30px;
+  margin-right: 5%;
+}
+
+.resultDetails .leaderboardList {
+  height: 300px;
+}
+
+.leaderboardList .d-flex {
+  margin-bottom: 10px;
+  margin-right: 10%;
+}

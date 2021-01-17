@@ -48,6 +48,7 @@ class LeaderBoard extends Component {
         onClick={(e) => clickHandle(user)}
         type="button"
         className="user d-flex justify-content-between"
+        key={user.index}
       >
         <div>
           <b className="number">{user.index}</b>

@@ -9,7 +9,6 @@ const QuizBoard = ({ quiz, params }) => {
   while (random.length < 10) {
     random.push(parseInt(0 + Math.random() * 4));
   }
-  console.log(totalPoints);
   return (
     <div className="quizboard">
       {totalPoints === null ? (

@@ -1,0 +1,10 @@
+export { default as a } from "./female/1.png";
+export { default as b } from "./male/a.png";
+export { default as c } from "./female/2.png";
+export { default as d } from "./male/b.png";
+export { default as e } from "./female/3.png";
+export { default as f } from "./male/c.png";
+export { default as g } from "./female/4.png";
+export { default as h } from "./male/d.png";
+export { default as i } from "./female/5.png";
+export { default as j } from "./female/6.png";
