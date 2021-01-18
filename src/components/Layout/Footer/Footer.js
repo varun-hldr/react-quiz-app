@@ -12,16 +12,16 @@ export default class Footer extends Component {
               Devloped by{" "}
               <a
                 className="link-light"
-                href="https://github.com/aniket-teltumbade-au9"
+                href="https://github.com/varun-haldhar-au9"
               >
-                ANIKET
+                VARUN
               </a>{" "}
               &{" "}
               <a
                 className="link-light"
-                href="https://github.com/varun-haldhar-au9"
+                href="https://github.com/aniket-teltumbade-au9"
               >
-                VARUN
+                ANIKET
               </a>{" "}
             </h6>
           </div>

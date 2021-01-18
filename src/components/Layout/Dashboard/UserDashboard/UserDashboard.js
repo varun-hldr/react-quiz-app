@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import QuizList from "./QuizList";
 import Results from "./Results";
@@ -59,7 +59,9 @@ class UserDashboard extends Component {
       <div className="dashboard">
         {!this.state.quiz ? (
           <div class="position-absolute top-50 start-50 translate-middle">
-            <button className="CreateQuiz">Create Quiz</button>
+            <button className="CreateQuiz">
+              <Link to="/createquiz">Create Quiz</Link>
+            </button>
           </div>
         ) : (
           <div className="row userDashboard">

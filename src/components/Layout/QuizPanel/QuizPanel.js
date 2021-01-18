@@ -11,7 +11,6 @@ class QuizPanel extends Component {
   componentDidMount() {
     const {
       match: { params },
-      quiz,
     } = this.props;
     if (this.props.match.url.includes("quiz")) {
       this.props.dispatch(action.getQuiz(params.id));

@@ -15,6 +15,7 @@ const Routing = () => {
           <Route path="/login" component={Layout.Login} />
           <Route path="/signup" component={Layout.Signup} />
           <Route path="/dashboard" component={Layout.UserDashboard} />
+          <Route path="/createquiz" component={Layout.CreateQuiz} />
         </Switch>
         <Layout.Footer />
       </Router>

@@ -53,7 +53,9 @@ class Home extends Component {
           <p>
             <b>Bright emotions, happy audiences & beautiful memories</b>
           </p>
-          <button type="button">Create Quiz</button>
+          <button type="createquiz">
+            <Link to="/createquiz">Create Quiz</Link>
+          </button>
         </div>
         <div className="footer-area">
           <div className="row">

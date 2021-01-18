@@ -114,6 +114,11 @@
   font-weight: 700;
 }
 
+.dashboard a {
+  color: #ffdf6c;
+  text-decoration: none;
+}
+
 /* Results Details */
 
 .resultDetails {
