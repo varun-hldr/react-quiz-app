@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import * as Logic from "../../Logics/Logics";
+import * as Action from "../../../actionsFiles/apiActions";
 import SuccessPage from "./SuccessPage";
 import "../../css/CreateQuiz.css";
 
@@ -8,7 +10,7 @@ class CreateQuiz extends Component {
   state = {
     question: [{ id: 1, style: null, text: "Save question" }],
     quizData: {
-      id: null,
+      id: Logic.generateID(this.props.auth.user.quizList),
       totalPlayed: 0,
       players: [],
       quiz: [],
@@ -23,10 +25,57 @@ class CreateQuiz extends Component {
     style: null,
   };
 
+  onClickSave = (e, value) => {
+    const initialQuiz = {
+      question: null,
+      correct_answer: null,
+      incorrect_answers: [null, null, null],
+    };
+    const question = this.state.quiz;
+    let quiz = this.state.quizData.quiz;
+    if (
+      question.question !== null &&
+      question.correct_answer !== null &&
+      question.incorrect_answers[0] !== null &&
+      question.incorrect_answers[1] !== null &&
+      question.incorrect_answers[2] !== null
+    ) {
+      let nonQuestion = this.state.question.map((val) => {
+        if (val.id === value.id) {
+          return { ...val, style: "#37e9bb", text: "Saved" };
+        } else {
+          return val;
+        }
+      });
+      quiz.push(question);
+      this.setState({
+        quizData: { ...this.state.quizData, quiz },
+        question: nonQuestion,
+      });
+      this.setState({
+        quiz: initialQuiz,
+      });
+    }
+
+    if (e.target.name === "savequiz") {
+      if (this.state.quizData.quiz.length === 10) {
+        let user = this.props.auth.user;
+        user.quizList.push(this.state.quizData);
+        Action.updateUser(user);
+        Action.setUser(user);
+        this.setState({
+          success: true,
+        });
+      }
+    }
+  };
+
   render() {
     if (!this.props.auth.isAuth) {
       return <Redirect to="login" />;
     }
+    console.log(this.props.auth.user);
+
     return (
       <div className="createQuizMain">
         {!this.state.success ? (
@@ -63,42 +112,6 @@ class CreateQuiz extends Component {
       </div>
     );
   }
-
-  onClickSave = (e, value) => {
-    const initialQuiz = {
-      question: null,
-      correct_answer: null,
-      incorrect_answers: [null, null, null],
-    };
-    const question = this.state.quiz;
-    let quiz = this.state.quizData.quiz;
-    if (
-      question.question !== null &&
-      question.correct_answer !== null &&
-      question.incorrect_answers[0] !== null
-    ) {
-      let nonQuestion = this.state.question.map((val) => {
-        if (val.id === value.id) {
-          return { ...val, style: "#37e9bb", text: "Saved" };
-        } else {
-          return val;
-        }
-      });
-      quiz.push(question);
-      this.setState({
-        quizData: { ...this.state.quizData, quiz },
-        question: nonQuestion,
-      });
-    }
-    this.setState({
-      quiz: initialQuiz,
-    });
-    if (e.target.name === "savequiz") {
-      if (this.state.quizData.quiz.length === 10) {
-        console.log(this.state.quizData);
-      }
-    }
-  };
 
   onChangeHandler = (e) => {
     let quiz = this.state.quiz;
@@ -149,7 +162,7 @@ class CreateQuiz extends Component {
             <input onChange={this.onChangeHandler} name="incorrect_c" />
           </div>
         </div>
-        <h5 className="mt-3 ">Please fill minimium 2 worng options</h5>
+        <h5 className="mt-3 ">Please fill all worng options</h5>
         <div className="saveQuiz">
           <button
             onClick={(e) => this.onClickSave(e, value)}

@@ -38,7 +38,7 @@ class NavBar extends Component {
               </div>
               {this.props.auth.isAuth ? (
                 <div className="d-flex">
-                  <button type="button" className="btn btn-light ms-5 ">
+                  <button type="button" className="btn btn-light ms-3">
                     <Link to="/dashboard">Dashboard</Link>
                   </button>
                   <button type="button" className="btn btn-light ms-2 ">

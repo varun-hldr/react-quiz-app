@@ -12,6 +12,19 @@ export const imageGenerator = (user) => {
   }
 };
 
+export const generateID = (quizList) => {
+  if (quizList) {
+    if (quizList.length < 1) {
+      return 1;
+    } else {
+      let id = quizList.map((quiz) => quiz.id);
+      return Math.max(...id) + 1;
+    }
+  } else {
+    return 765;
+  }
+};
+
 export const highestFinder = (array) => {
   array.sort(function (a, b) {
     return b.points - a.points;

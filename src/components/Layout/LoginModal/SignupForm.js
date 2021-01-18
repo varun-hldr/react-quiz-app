@@ -11,6 +11,7 @@ export default class SignupForm extends Component {
 
   render() {
     const names = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
+    console.log(this.state);
 
     return (
       <div className="container signupForm">
