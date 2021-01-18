@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as Profile from "../../img/profiles";
+import * as Action from "../../../actionsFiles/apiActions";
 import "../../css/LoginSignup.css";
 
 export default class SignupForm extends Component {
@@ -11,8 +12,6 @@ export default class SignupForm extends Component {
 
   render() {
     const names = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"];
-    console.log(this.state);
-
     return (
       <div className="container signupForm">
         <div className="d-flex justify-content-center">
@@ -28,7 +27,9 @@ export default class SignupForm extends Component {
                   <div className="userImages d-flex justify-content-center">
                     {names.map((name) => (
                       <div
-                        onClick={(e) => this.onChangeHandler(e, Profile[name])}
+                        onClick={(e) =>
+                          this.onChangeHandler(e, Profile[name], name)
+                        }
                         type="button"
                         className="user"
                         key={name}
@@ -121,13 +122,23 @@ export default class SignupForm extends Component {
       </div>
     );
   }
-  onChangeHandler = (e, url) => {
+  onChangeHandler = (e, url, name) => {
+    let female = "abcdef";
+    let male = "ghij";
+
     let formData = this.state.formData;
     if (url) {
-      formData = { ...formData, avatar: url };
+      formData = { ...formData, avatar: url, quizList: [] };
     } else {
       formData = { ...formData, [e.target.name]: e.target.value };
     }
+    if (female.includes(name)) {
+      formData = { ...formData, gender: "female" };
+    }
+    if (male.includes(name)) {
+      formData = { ...formData, gender: "male" };
+    }
+
     this.setState({
       formData,
       password: null,
@@ -174,7 +185,8 @@ export default class SignupForm extends Component {
       }
     }
     if (check) {
-      console.log(formData);
+      delete formData.confirmPassword;
+      Action.postUser(formData);
       this.setState({
         check: true,
       });

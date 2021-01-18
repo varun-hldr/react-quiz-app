@@ -15,7 +15,6 @@ class QuizPanel extends Component {
     if (this.props.match.url.includes("quiz")) {
       this.props.dispatch(action.getQuiz(params.id));
     }
-    console.log(this.props.match.url);
     if (this.props.match.url.includes("user")) {
       this.props.dispatch({ type: "LOADED" });
       this.props.dispatch(action.getUserQuiz(params.id, params.id2));
@@ -32,7 +31,12 @@ class QuizPanel extends Component {
         ) : (
           <div className="row">
             <div className="col-8">
-              {<QuizBoard quiz={quizList} params={this.props.match.params} />}
+              {
+                <QuizBoard
+                  quizList={quizList}
+                  params={this.props.match.params}
+                />
+              }
             </div>
             <div className="col-4">
               <LeaderBoard users={this.handlerFunction(gLeaderboard)} />

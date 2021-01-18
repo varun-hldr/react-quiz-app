@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Quiz from "./Quiz";
 import "../../../css/Quiz.css";
 
-const FillQuiz = ({ quiz, random, setTotalPoints }) => {
+const FillQuiz = ({ quiz, random, onSubmitHandler }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [points, setPoints] = useState(0);
 
@@ -44,7 +44,7 @@ const FillQuiz = ({ quiz, random, setTotalPoints }) => {
               </button>
             ) : (
               <button
-                onClick={(e) => setTotalPoints(points)}
+                onClick={(e) => onSubmitHandler(points)}
                 className="mybtn submit-button"
               >
                 Submit

@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../../css/Quizresult.css";
 
-const QuizResult = ({ totalPoints, setTotalPoints, params }) => {
-  console.log(params.id);
+const QuizResult = ({ totalPoints, onTryAgain, params }) => {
   const param = `/quiz/${params.id}`;
   return (
     <div>
@@ -16,7 +15,7 @@ const QuizResult = ({ totalPoints, setTotalPoints, params }) => {
             <h1>{totalPoints}</h1>
           </div>
         </div>
-        <button onClick={setTotalPoints}>
+        <button onClick={onTryAgain}>
           <Link to={param}>Try Again</Link>
         </button>
       </div>

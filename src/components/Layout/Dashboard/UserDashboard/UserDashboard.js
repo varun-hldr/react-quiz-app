@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import * as Action from "../../../../actionsFiles/apiActions";
 import QuizList from "./QuizList";
 import Results from "./Results";
 import "../../../css/UserDashboard.css";
@@ -31,7 +32,10 @@ class UserDashboard extends Component {
       });
     }
     if (action === "del") {
+      let user = this.props.auth.user;
       const quizList = quizLists.filter((quiz) => quiz.id !== id);
+      user.quizList = quizList;
+      Action.updateUser(user);
       this.setState({
         quizList,
       });

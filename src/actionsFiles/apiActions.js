@@ -78,3 +78,54 @@ export async function updateUser(user) {
     console.error(err);
   }
 }
+
+export async function postUser(user) {
+  try {
+    let response = await fetch(`http://quiz-app-data.herokuapp.com/users`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    console.log(response);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function updateGlobalLeader(user) {
+  try {
+    let response = await fetch(
+      `http://quiz-app-data.herokuapp.com/global_ranking/${user.id}`,
+      {
+        method: "PUT",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(response);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function postGlobalLeader(user) {
+  try {
+    let response = await fetch(
+      `http://quiz-app-data.herokuapp.com/global_ranking`,
+      {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    console.log(response);
+  } catch (err) {
+    console.error(err);
+  }
+}
