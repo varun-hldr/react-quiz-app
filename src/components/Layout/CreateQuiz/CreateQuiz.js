@@ -167,7 +167,11 @@ class CreateQuiz extends Component {
     const { question } = this.state;
     if (question.length < 10) {
       let value = question;
-      value.push({ id: question.length + 1, style: null });
+      value.push({
+        id: question.length + 1,
+        style: null,
+        text: "Save question",
+      });
       this.setState({
         question: value,
       });
