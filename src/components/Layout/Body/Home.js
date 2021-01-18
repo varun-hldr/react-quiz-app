@@ -50,7 +50,7 @@ class Home extends Component {
       <div className="container home">
         <div className="header-area">
           <h2>I'm QuizUp</h2>
-          <p>
+          <p className="homePara">
             <b>Bright emotions, happy audiences & beautiful memories</b>
           </p>
           <button type="createquiz">

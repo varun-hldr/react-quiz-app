@@ -10,7 +10,8 @@
 
 .score {
   height: 300px;
-  width: 70%;
+  width: 85%;
+  max-width: 400px;
   background-color: #37e9bb;
   border-radius: 20px;
   margin-left: auto;

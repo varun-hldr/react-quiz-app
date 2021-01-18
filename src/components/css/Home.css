@@ -17,9 +17,11 @@
   color: #707070;
 }
 
-.header-area p {
+.header-area .homePara {
   color: #f8f9fa;
   line-height: 25px;
+  margin-right: 20px;
+  font-size: 17px;
 }
 
 .header-area button {
