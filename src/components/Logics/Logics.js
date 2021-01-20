@@ -61,7 +61,7 @@ export const getLeaderboard = (array) => {
 
 export const getQuizList = (quiz, index, onClickHandler, quizList) => {
   return (
-    <div className="quizLst">
+    <div key={index} className="quizLst">
       <div className="quizName d-flex">
         <span>{index + 1}</span>
         <h2>

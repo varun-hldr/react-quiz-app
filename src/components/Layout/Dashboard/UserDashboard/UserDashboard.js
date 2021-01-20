@@ -71,7 +71,6 @@ class UserDashboard extends Component {
         console.log("Copy failed");
       }
     );
-    navigator.clipboard.writeText(this.state.text);
   }
 
   render() {
@@ -103,7 +102,7 @@ class UserDashboard extends Component {
     return (
       <div className="dashboard">
         {!this.state.quiz ? (
-          <div class="position-absolute top-50 start-50 translate-middle">
+          <div className="position-absolute top-50 start-50 translate-middle">
             <button className="CreateQuiz">
               <Link to="/createquiz">Create Quiz</Link>
             </button>
