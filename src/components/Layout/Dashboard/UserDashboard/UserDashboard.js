@@ -63,23 +63,17 @@ class UserDashboard extends Component {
 
   setShow(check) {
     this.setState({ ...this.state, show: check });
-    this.CopyToClipBoard(this.state.text);
-  }
 
-  CopyToClipBoard = function (text) {
-    if (navigator.clipboard != undefined) {
-      navigator.clipboard.writeText(text).then(
-        function () {
-          console.log("Async: Copying to clipboard was successful!");
-        },
-        function (err) {
-          console.error("Async: Could not copy text: ", err);
-        }
-      );
-    } else if (window.clipboardData) {
-      window.clipboardData.setData("Text", text);
-    }
-  };
+    let CopyToClipBoard = async function copyPageUrl(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        console.log("Quiz code copied to clipboard");
+      } catch (err) {
+        console.error("Failed to copy: ", err);
+      }
+    };
+    CopyToClipBoard(this.state.text);
+  }
 
   render() {
     if (!this.props.auth.isAuth) {
