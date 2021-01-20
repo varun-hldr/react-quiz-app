@@ -1,4 +1,4 @@
-const myApi = "http://quiz-app-data.herokuapp.com/";
+const myApi = "https://play-quizup-api.herokuapp.com/";
 
 export const getQuiz = (id) => {
   const completeURL = `https://opentdb.com/api.php?amount=10&category=${id}&difficulty=easy&type=multiple`;
@@ -15,7 +15,7 @@ export const getQuiz = (id) => {
 
 export const getUserQuiz = (id, id2) => {
   let response = [];
-  const apiData = fetch(`http://quiz-app-data.herokuapp.com/users/${id}`, {
+  const apiData = fetch(`${myApi}users/${id}`, {
     method: "GET",
   }).then((res) => res.json());
   response = apiData.then(function (result) {
@@ -29,7 +29,7 @@ export const getUserQuiz = (id, id2) => {
 };
 
 export const getGlobalLeaderBoard = () => {
-  const response = fetch(`${myApi}global_ranking`, {
+  const response = fetch(`${myApi}leaderboard`, {
     method: "GET",
   }).then((res) => res.json());
   return {
@@ -63,16 +63,13 @@ export const setUser = (user, token) => {
 
 export async function updateUser(user) {
   try {
-    let response = await fetch(
-      `http://quiz-app-data.herokuapp.com/users/${user.id}`,
-      {
-        method: "PUT",
-        body: JSON.stringify(user),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch(`${myApi}users/${user._id}`, {
+      method: "PATCH",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     console.log(response);
   } catch (err) {
     console.error(err);
@@ -81,7 +78,7 @@ export async function updateUser(user) {
 
 export async function postUser(user) {
   try {
-    let response = await fetch(`http://quiz-app-data.herokuapp.com/users`, {
+    let response = await fetch(`${myApi}users`, {
       method: "POST",
       body: JSON.stringify(user),
       headers: {
@@ -95,17 +92,15 @@ export async function postUser(user) {
 }
 
 export async function updateGlobalLeader(user) {
+  console.log(user);
   try {
-    let response = await fetch(
-      `http://quiz-app-data.herokuapp.com/global_ranking/${user.id}`,
-      {
-        method: "PUT",
-        body: JSON.stringify(user),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch(`${myApi}leaderboard/${user._id}`, {
+      method: "PATCH",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     console.log(response);
   } catch (err) {
     console.error(err);
@@ -114,16 +109,13 @@ export async function updateGlobalLeader(user) {
 
 export async function postGlobalLeader(user) {
   try {
-    let response = await fetch(
-      `http://quiz-app-data.herokuapp.com/global_ranking`,
-      {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
+    let response = await fetch(`${myApi}leaderboard`, {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     console.log(response);
   } catch (err) {
     console.error(err);

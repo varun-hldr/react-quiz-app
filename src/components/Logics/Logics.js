@@ -87,6 +87,12 @@ export const getQuizList = (quiz, index, onClickHandler, quizList) => {
         >
           DEL
         </button>
+        <button
+          onClick={(e) => onClickHandler(quiz.id, "share", quizList)}
+          className="share"
+        >
+          SHARE
+        </button>
       </div>
     </div>
   );

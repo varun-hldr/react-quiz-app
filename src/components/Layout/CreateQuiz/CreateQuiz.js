@@ -74,8 +74,6 @@ class CreateQuiz extends Component {
     if (!this.props.auth.isAuth) {
       return <Redirect to="login" />;
     }
-    console.log(this.props.auth.user);
-
     return (
       <div className="createQuizMain">
         {!this.state.success ? (

@@ -4,6 +4,10 @@ import { Link } from "react-router-dom";
 import "../../css/NavBar.css";
 
 class NavBar extends Component {
+  state = {
+    code: null,
+    check: false,
+  };
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -31,9 +35,23 @@ class NavBar extends Component {
                   type="input"
                   placeholder="Enter Code"
                   aria-label="Search"
+                  onChange={(e) =>
+                    this.setState({ code: e.target.value, check: true })
+                  }
                 />
                 <button type="button" className="btn btn-dark">
-                  JOIN
+                  {this.state.check ? (
+                    <Link
+                      to={`user/${this.state.code}`}
+                      onClick={(e) =>
+                        this.setState({ code: null, check: false })
+                      }
+                    >
+                      JOIN
+                    </Link>
+                  ) : (
+                    "JOIN"
+                  )}
                 </button>
               </div>
               {this.props.auth.isAuth ? (

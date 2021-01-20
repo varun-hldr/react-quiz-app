@@ -101,6 +101,9 @@
 .dashboard .quizOptions .view {
   background-color: #37e9bb;
 }
+.dashboard .quizOptions .share {
+  background-color: #6f42c1;
+}
 
 .dashboard .CreateQuiz {
   background-color: #202020;

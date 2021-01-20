@@ -35,6 +35,10 @@
   font-weight: 700;
 }
 
+.mynav-input .btn a {
+  color: #ffdf6c;
+}
+
 .btn:hover {
   box-shadow: none !important;
 }

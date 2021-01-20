@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import * as Action from "../../../../actionsFiles/apiActions";
+import { Modal, Button } from "react-bootstrap";
 import QuizList from "./QuizList";
 import Results from "./Results";
 import "../../../css/UserDashboard.css";
@@ -15,6 +16,8 @@ class UserDashboard extends Component {
       id: null,
       id2: null,
     },
+    show: false,
+    text: null,
   };
   componentDidMount() {
     if (this.props.auth.isAuth) {
@@ -44,12 +47,25 @@ class UserDashboard extends Component {
       this.setState({
         play: {
           check: true,
-          id: this.props.auth.user.id,
+          id: this.props.auth.user._id,
           id2: id,
         },
       });
     }
+    if (action === "share") {
+      this.setState({
+        ...this.state,
+        show: true,
+        text: `${this.props.auth.user._id}/${id}`,
+      });
+    }
   };
+
+  setShow(check) {
+    this.setState({ ...this.state, show: check });
+    navigator.clipboard.writeText(this.state.text);
+  }
+
   render() {
     if (!this.props.auth.isAuth) {
       return <Redirect to="/" />;
@@ -57,6 +73,23 @@ class UserDashboard extends Component {
     if (this.state.play.check) {
       return (
         <Redirect to={`/user/${this.state.play.id}/${this.state.play.id2}`} />
+      );
+    }
+    if (this.state.show) {
+      return (
+        <Modal show={this.state.show} onHide={(e) => this.setShow(true)}>
+          <Modal.Header>
+            <Modal.Title>Your Quiz Code</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="text-center">
+            <h5>{this.state.text}</h5>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={(e) => this.setShow(false)}>
+              Copy
+            </Button>
+          </Modal.Footer>
+        </Modal>
       );
     }
     return (
