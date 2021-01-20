@@ -63,6 +63,14 @@ class UserDashboard extends Component {
 
   setShow(check) {
     this.setState({ ...this.state, show: check });
+    navigator.clipboard.writeText(this.state.text).then(
+      function () {
+        console.log("Text copied");
+      },
+      function () {
+        console.log("Copy failed");
+      }
+    );
     navigator.clipboard.writeText(this.state.text);
   }
 
